@@ -1,6 +1,6 @@
 import database
-import game
 import printing_service
+from game import start
 
 
 def prompt_add_word():
@@ -9,7 +9,7 @@ def prompt_add_word():
         category = input("Category for which you want to add word: ")
         word = input(f"Word you want to add to {category}: ")
         database.add_word(category, word)
-        choice = input("Do you want to add next world? Type 'y' if yes, type anything else if no: ")
+        choice = input("Do you want to add next word? Type 'y' if yes, type anything else if no: ")
 
 
 def prompt_remove_word():
@@ -17,10 +17,10 @@ def prompt_remove_word():
     while choice == "y":
         word = input("Write a word you want to delete: ")
         database.remove_word(word)
-        choice = input("Do you want to add next world? Type 'y' if yes, type anything else if no: ")
+        choice = input("Do you want to add next word? Type 'y' if yes, type anything else if no: ")
 
 
-USER_CHOICE = """
+user_choice = """
 Welcome to the hangman game!
 
 -g) to see information about the game
@@ -35,7 +35,7 @@ What is your choice? Write here: """
 
 
 def menu():
-    choice = input(USER_CHOICE).lower()
+    choice = input(user_choice).lower()
     while choice != "q":
         if choice == "g":
             printing_service.info()
@@ -48,12 +48,13 @@ def menu():
         elif choice == "c":
             printing_service.print_all_categories()
         elif choice == "p":
-            game.game()
+            start()
         elif choice == "334":
+            # This in undercover option to check for all elements
             print(database.get_all_words())
         else:
             print("Unknown choice, please try again")
-        choice = input(USER_CHOICE).lower()
+        choice = input(user_choice).lower()
 
 
 menu()

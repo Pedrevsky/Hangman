@@ -1,7 +1,5 @@
 import database
 
-# words = database.get_all_words()
-
 
 def print_all_categories():
     categories = []
@@ -12,9 +10,8 @@ def print_all_categories():
     if len(categories) == 0:
         print("You don't have any categories")
     else:
-        _categories = ", ".join(categories)
         print("All categories you can pick are below:\n")
-        print(_categories)
+        print(", ".join(categories))
         print("\n\n")
 
 
@@ -28,7 +25,7 @@ def instructions():
     2. If there is no words in category you will be informed and pushed to the main menu
     3. You can add words to the new categories or to the categories that already exist
     4. You can check categories by typing 'c' in main menu (words won't be shown)
-    5. In game you have 6 lives
+    5. You have 6 lives in game
     6. One miss is one life down
     7. You can resign a game by typing 'EXIT', you will return to main menu
     """
