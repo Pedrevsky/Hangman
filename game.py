@@ -4,10 +4,7 @@ from printing_service import draw_hangman
 
 
 def check_all_words(checklist):
-    if len(checklist) == 0:
-        return False
-    else:
-        return True
+    return len(checklist) != 0
 
 
 def make_undercover(word):
@@ -20,15 +17,12 @@ def make_undercover(word):
     return "".join(undercover_list)
 
 
-def deference_category(category):
+def get_single_category(category):
     return [element[1] for element in database.words if element[0] == category]
 
 
 def check_category(category_words):
-    if len(category_words) == 0:
-        return False
-    else:
-        return True
+    return len(category_words) != 0
 
 
 def code_word(word, purpose):
@@ -53,17 +47,21 @@ def guessing_letters(guess, word):
     while guess != "EXIT" and tries > 1:
         i = 0
         if guess.lower() not in word:
-            incorrect_guesses.append(guess.lower())
-            incorrect_guesses = list(set(incorrect_guesses))
-            tries -= 1
-            print(f"Your guess {guess} was incorrect")
-            print(f"You have {tries} tries left")
-            draw_hangman(tries)
-            _incorrect_guesses = ", ".join(incorrect_guesses)
-            print(f"Your incorrect guesses: {_incorrect_guesses}\n")
-            print(undercover)
-            guess = input("Write a letter: ")
-
+            if guess.lower() not in incorrect_guesses:
+                incorrect_guesses.append(guess.lower())
+                incorrect_guesses = list(set(incorrect_guesses))
+                tries -= 1
+                print(f"Your guess {guess} was incorrect")
+                print(f"You have {tries} tries left")
+                draw_hangman(tries)
+                _incorrect_guesses = ", ".join(incorrect_guesses)
+                print(f"Your incorrect guesses: {_incorrect_guesses}\n")
+                print(undercover)
+                guess = input("Write a letter: ")
+            else:
+                print(f"You already have guessed incorrectly {guess.lower()}")
+                print(undercover)
+                guess = input("Write a letter: ")
         else:
             for element in word:
                 if element.lower() == guess.lower():
@@ -85,7 +83,7 @@ def guessing_letters(guess, word):
 
 def game():
     category = input("Category you would like to play: ")
-    category_words = deference_category(category)
+    category_words = get_single_category(category)
     if check_category(category_words):
         word = random.choice(category_words)
         code_word(word, "print")
@@ -102,5 +100,7 @@ def start():
         while decision == "y":
             game()
             decision = input(f"{name} do you want to start next game? Press 'y' if yes and other key if no: ").lower()
+        else:
+            print("Returning to the main menu")
     else:
         print("You don't have any words\n")
