@@ -1,0 +1,215 @@
+human body,body
+human body,bone
+human body,skin
+human body,blood
+human body,heart
+human body,lung
+human body,stomach
+human body,brain
+human body,head
+human body,hair
+human body,ear
+human body,face
+human body,forehead
+human body,eye
+human body,nose
+human body,cheek
+human body,mouth
+human body,lip
+human body,tongue
+human body,tooth
+human body,teeth
+human body,beard
+human body,throat
+human body,neck
+human body,shoulder
+human body,hand
+human body,arm
+human body,elbow
+human body,finger
+human body,nail
+human body,chest
+human body,breast
+human body,back
+human body,leg
+human body,knee
+human body,foot
+human body,feet
+human body,toe
+human body,heel
+human body,muscle
+human body,vein
+human body,liver
+human body,kidney
+human body,ankle
+human body,thumb
+human body,wrist
+human body,waist
+human body,buttocks
+human body,eyelid
+human body,eyelash
+human body,eyebrow
+human body,moustache
+landscape,ocean
+landscape,sea
+landscape,river
+landscape,lake
+landscape,pond
+landscape,waterfall
+landscape,bay
+landscape,mountains
+landscape,valley
+landscape,desert
+landscape,oasis
+landscape,savanna
+landscape,jungle
+landscape,volcano
+landscape,island
+landscape,wilderness
+landscape,rain forest
+landscape,coastline
+landscape,dune
+landscape,chasm
+landscape,field
+landscape,meadow
+landscape,strait
+landscape,glacier
+landscape,peninsula
+landscape,gorge
+profession,personal assistant
+profession,artist
+profession,painter
+profession,model
+profession,driver
+profession,shop assistant
+profession,instructor
+profession,lawyer
+profession,matchmaker
+profession,tamer
+profession,miner
+profession,baker
+profession,florist
+profession,chef
+profession,farmer
+profession,stuntman
+profession,sculptor
+profession,postman
+profession,policeman
+profession,rescuer
+profession,metal worker
+profession,journalist
+profession,maid
+profession,scientist
+profession,fireman
+profession,paratrooper
+profession,plasterer
+profession,plumber
+profession,soldier
+profession,ticket inspector
+profession,economist
+profession,engineer
+colors,black
+colors,white
+colors,blue
+colors,green
+colors,yellow
+colors,red
+colors,orange
+colors,pink
+colors,purple
+colors,brown
+colors,grey
+colors,beige
+colors,pitch black
+colors,cream
+colors,crimson
+colors,faded
+colors,lurid
+colors,lilac
+colors,scarlet
+colors,pale
+colors,turquoise
+colors,mauve
+colors,maroon
+sport,archery
+sport,athletict
+sport,diving
+sport,gymnastics
+sport,handball
+sport,hang-gliding
+sport,hill walking
+sport,ice-skating
+sport,jet skiing
+sport,kayaking
+sport,rock climbing
+sport,sailing
+sport,skating
+sport,skiing
+sport,the long jump
+sport,volleyball
+sport,championship
+sport,lift weights
+sport,run
+sport,score
+sport,tournament
+sport,draw
+sport,water skiing
+sport,scuba diving
+sport,World Cup
+sport,penalty
+sport,team
+sport,goalkeeper
+sport,stadium
+sport,football
+sport,football pitch
+sport,referee
+sport,basketball
+sport,swimming
+sport,winter sports
+crockery,crockery
+crockery,cup
+crockery,saucer
+crockery,plate
+crockery,mug
+crockery,tumbler
+crockery,glassware
+crockery,wine glass
+crockery,beer glass
+crockery,carafe
+crockery,decanter
+crockery,bowl
+crockery,saltcellar
+crockery,jug
+crockery,glass
+travelling,bike
+travelling,bicycle
+travelling,boat
+travelling,bus
+travelling,coach
+travelling,ferry
+travelling,lorry
+travelling,minibus
+travelling,motorbike
+travelling,plane
+travelling,taxi
+travelling,underground
+travelling,van
+travelling,business trip
+travelling,airport
+travelling,fare
+travelling,rucksack
+travelling,seat belts
+travelling,trip
+travelling,timetable
+travelling,tourist
+travelling,hitchhike
+travelling,railway
+travelling,harbour
+travelling,voyage
+travelling,platform
+travelling,motorway
+travelling,tent
+travelling,holidays
+travelling,souvenir
+travelling,travel agent
+travelling,travel abroad
