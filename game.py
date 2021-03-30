@@ -30,6 +30,8 @@ def code_word(word, purpose):
     for element in word:
         if element == " ":
             undercover_list.append(" ")
+        elif element == "-":
+            undercover_list.append("-")
         else:
             undercover_list.append("_")
 
@@ -44,15 +46,14 @@ def guessing_letters(guess, word):
     undercover_list = code_word(word, "assignment")
     tries = 6
     incorrect_guesses = []
-    while guess != "EXIT" and tries > 1:
+    while guess != "EXIT" and tries >= 0:
         i = 0
         if guess.lower() not in word:
             if guess.lower() not in incorrect_guesses:
                 incorrect_guesses.append(guess.lower())
                 incorrect_guesses = list(set(incorrect_guesses))
                 tries -= 1
-                print(f"Your guess {guess} was incorrect")
-                print(f"You have {tries} tries left")
+                print(f"Your guess {guess} was incorrect, you have {tries} tries left")
                 draw_hangman(tries)
                 _incorrect_guesses = ", ".join(incorrect_guesses)
                 print(f"Your incorrect guesses: {_incorrect_guesses}\n")

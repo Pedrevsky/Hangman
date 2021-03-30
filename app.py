@@ -35,6 +35,7 @@ What is your choice? Write here: """
 
 
 def menu():
+    #database.create_word_file()
     choice = input(user_choice).lower()
     while choice != "q":
         if choice == "g":
