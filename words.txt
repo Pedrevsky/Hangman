@@ -213,3 +213,4 @@ travelling,holidays
 travelling,souvenir
 travelling,travel agent
 travelling,travel abroad
+test, sobie testuje czy dziala

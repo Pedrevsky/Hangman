@@ -7,25 +7,15 @@ def check_all_words(checklist):
     return len(checklist) != 0
 
 
-def make_undercover(word):
-    undercover_list = []
-    for element in word:
-        if element == " ":
-            undercover_list.append(" ")
-        else:
-            undercover_list.append("_")
-    return "".join(undercover_list)
+def check_category(category_words):
+    return len(category_words) != 0
 
 
 def get_single_category(category):
     return [element[1] for element in database.words if element[0] == category]
 
 
-def check_category(category_words):
-    return len(category_words) != 0
-
-
-def code_word(word, purpose):
+def code_word(word):
     undercover_list = []
     for element in word:
         if element == " ":
@@ -34,48 +24,92 @@ def code_word(word, purpose):
             undercover_list.append("-")
         else:
             undercover_list.append("_")
+    return undercover_list
 
-    if purpose == "print":
-        print("".join(undercover_list))
+
+def guess_decision(guess, tries):
+    return guess != "EXIT" and tries > 1
+
+
+def add_letter(guess, word, undercover_list):
+    i = 0
+    for element in word:
+        if element.lower() == guess.lower():
+            undercover_list[i] = element
+        i += 1
+    return undercover_list
+
+
+def incorrect_guess_instruction(guess, undercover, tries, incorrect_guesses):
+    if guess.lower() in incorrect_guesses:
+        print(f"You already have guessed incorrectly {guess.lower()}")
+        print(undercover)
+        return False
     else:
-        return undercover_list
+        incorrect_guesses.append(guess.lower())
+        incorrect_guesses = list(set(incorrect_guesses))
+        print(f"Your guess {guess} was incorrect, you have {tries} tries left")
+        draw_hangman(tries)
+        _incorrect_guesses = ", ".join(incorrect_guesses)
+        print(f"Your incorrect guesses: {_incorrect_guesses}\n")
+        print(undercover)
+        return True
+
+
+def make_undercover(word, undercover_list):
+    for element in word:
+        if element == " ":
+            undercover_list.append(" ")
+        else:
+            undercover_list.append("_")
+    return "".join(undercover_list)
+
+
+def check_if_correct_word(word, undercover):
+    return word == undercover
+
+
+def less_tries(tries):
+    if incorrect_guess_instruction:
+        tries -= 1
+    return tries
 
 
 def guessing_letters(guess, word):
-    undercover = "".join(code_word(word, "assignment"))
-    undercover_list = code_word(word, "assignment")
+    undercover_list = code_word(word)
+    undercover = "".join(undercover_list)
     tries = 6
     incorrect_guesses = []
-    while guess != "EXIT" and tries >= 0:
-        i = 0
-        if guess.lower() not in word:
-            if guess.lower() not in incorrect_guesses:
-                incorrect_guesses.append(guess.lower())
-                incorrect_guesses = list(set(incorrect_guesses))
-                tries -= 1
-                print(f"Your guess {guess} was incorrect, you have {tries} tries left")
-                draw_hangman(tries)
-                _incorrect_guesses = ", ".join(incorrect_guesses)
-                print(f"Your incorrect guesses: {_incorrect_guesses}\n")
-                print(undercover)
-                guess = input("Write a letter: ")
+    while guess_decision(guess, tries):
+        if guess in word:
+            undercover_list = add_letter(guess, word, undercover_list)
+            undercover = "".join(undercover_list)
+            if check_if_correct_word(word, undercover):
+                break
             else:
-                print(f"You already have guessed incorrectly {guess.lower()}")
                 print(undercover)
                 guess = input("Write a letter: ")
         else:
-            for element in word:
-                if element.lower() == guess.lower():
-                    undercover_list[i] = element
-                i += 1
+            tries = less_tries(tries)
+            incorrect_guess_instruction(guess, undercover, tries, incorrect_guesses)
+            guess = input("Write a letter: ")
+    if guess in word:
+        undercover_list = add_letter(guess, word, undercover_list)
+        undercover = "".join(undercover_list)
+        while True:
+            if guess not in word:
+                break
+            undercover_list = add_letter(guess, word, undercover_list)
             undercover = "".join(undercover_list)
-            if word != undercover:
+            if check_if_correct_word(word, undercover):
+                break
+            else:
                 print(undercover)
                 guess = input("Write a letter: ")
 
-            else:
-                print(f"Congratulations! You guessed correctly '{word}'")
-                break
+
+    if check_if_correct_word(word, undercover):
+        print(f"You guessed correctly {word}")
     else:
         print("You lost")
         draw_hangman(0)
@@ -87,7 +121,8 @@ def game():
     category_words = get_single_category(category)
     if check_category(category_words):
         word = random.choice(category_words)
-        code_word(word, "print")
+        undercover_list = code_word(word)
+        print("".join(undercover_list))
         guess = input("Write a letter: ")
         guessing_letters(guess, word)
     else:
