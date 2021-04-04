@@ -158,7 +158,7 @@ sport,scuba diving
 sport,World Cup
 sport,penalty
 sport,team
-szymkie,dzieki Szymkie ze jestes i wesołych świąt jeszcze raz
+szymkie,dzieki Szymkie ze jestes i wesolych swiat jeszcze raz
 sport,goalkeeper
 sport,stadium
 sport,football
